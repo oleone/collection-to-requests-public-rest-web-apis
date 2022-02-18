@@ -1,0 +1,480 @@
+{
+	"info": {
+		"_postman_id": "9197abca-219e-458e-b56e-2c4f9ca2c928",
+		"name": "Atividade Arquitetura de Software - APIs e WebServices - PUC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "IFood",
+			"item": [
+				{
+					"name": "Authorization",
+					"item": [
+						{
+							"name": "New Session",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "grantType",
+										"value": "",
+										"type": "text"
+									},
+									{
+										"key": "clientId",
+										"value": "",
+										"type": "text"
+									},
+									{
+										"key": "clientSecret",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://merchant-api.ifood.com.br/authentication/v1.0/oauth/token",
+									"protocol": "https",
+									"host": [
+										"merchant-api",
+										"ifood",
+										"com",
+										"br"
+									],
+									"path": [
+										"authentication",
+										"v1.0",
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Merchant",
+					"item": [
+						{
+							"name": "List Merchants",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-claims-aud",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{merchantApiHost}}/merchant/v1.0/merchants",
+									"host": [
+										"{{merchantApiHost}}"
+									],
+									"path": [
+										"merchant",
+										"v1.0",
+										"merchants"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Details",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-claims-aud",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{merchantApiHost}}/merchant/v1.0/merchants/{{merchantId}}",
+									"host": [
+										"{{merchantApiHost}}"
+									],
+									"path": [
+										"merchant",
+										"v1.0",
+										"merchants",
+										"{{merchantId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Status",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-claims-aud",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{merchantApiHost}}/merchant/v1.0/merchants/{{merchantId}}/status",
+									"host": [
+										"{{merchantApiHost}}"
+									],
+									"path": [
+										"merchant",
+										"v1.0",
+										"merchants",
+										"{{merchantId}}",
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Status by operation",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-claims-aud",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{merchantApiHost}}/merchant/v1.0/merchants/{{merchantId}}/status/delivery",
+									"host": [
+										"{{merchantApiHost}}"
+									],
+									"path": [
+										"merchant",
+										"v1.0",
+										"merchants",
+										"{{merchantId}}",
+										"status",
+										"delivery"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Interruptions",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-claims-aud",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{merchantApiHost}}/merchant/v1.0/merchants/{{merchantId}}/interruptions",
+									"host": [
+										"{{merchantApiHost}}"
+									],
+									"path": [
+										"merchant",
+										"v1.0",
+										"merchants",
+										"{{merchantId}}",
+										"interruptions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Interruption",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-claims-aud",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "start",
+											"value": "2022-02-17T00:00:00.000",
+											"type": "text"
+										},
+										{
+											"key": "end",
+											"value": "2022-03-17T00:00:00.000",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Fechado temporariamente por limite de requisições",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{merchantApiHost}}/merchant/v1.0/merchants/{{merchantId}}/interruptions",
+									"host": [
+										"{{merchantApiHost}}"
+									],
+									"path": [
+										"merchant",
+										"v1.0",
+										"merchants",
+										"{{merchantId}}",
+										"interruptions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Interruption",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-claims-aud",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{merchantApiHost}}/merchant/v1.0/merchants/{{merchantId}}/interruptions/{{interruptionId}}",
+									"host": [
+										"{{merchantApiHost}}"
+									],
+									"path": [
+										"merchant",
+										"v1.0",
+										"merchants",
+										"{{merchantId}}",
+										"interruptions",
+										"{{interruptionId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Github",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.github.com/users",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Teams to ORG",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.github.com/orgs/ORG/teams",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"orgs",
+								"ORG",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Uber",
+			"item": []
+		}
+	]
+}
